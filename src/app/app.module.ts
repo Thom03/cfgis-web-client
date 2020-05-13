@@ -1,14 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NbThemeModule } from '@nebular/theme';
 
 import { AppComponent } from './app.component';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NbThemeModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
