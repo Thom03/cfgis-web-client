@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   userPictureOnly: boolean = false;
   user: any;
 
-  
+
 
   currentTheme = 'default';
 

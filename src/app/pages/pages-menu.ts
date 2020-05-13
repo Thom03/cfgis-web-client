@@ -12,17 +12,17 @@ export const MENU_ITEMS: NbMenuItem[] = [
     title: 'FEATURES',
     group: false,
   },
-    
+
   {
     title: 'Maps',
     icon: 'map-outline',
     children: [
-    
+
       {
         title: 'Leaflet Maps',
         link: '/pages/maps/leaflet',
       },
-     
+
     ],
   },
   {
@@ -33,10 +33,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Chart',
         link: '/pages/charts/echarts',
       },
-     
+
     ],
   },
-  
+
   {
     title: 'Projects & Layers',
     icon: 'grid-outline',
@@ -59,7 +59,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
-  
+
   // {
   //   title: 'Auth',
   //   icon: 'lock-outline',

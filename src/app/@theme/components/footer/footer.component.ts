@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
     <span class="created-by">
       Created with ♥ by <b><a href="https://akveo.page.link/8V2f" target="_blank">Gabriel</a></b> 2020
     </span>
-    
+
   `,
 })
 export class FooterComponent {

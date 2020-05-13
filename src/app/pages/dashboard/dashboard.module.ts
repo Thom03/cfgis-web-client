@@ -61,7 +61,7 @@ import { FormsModule } from '@angular/forms';
     WeatherComponent,
     PlayerComponent,
     SolarComponent,
-   
+
   ],
 })
 export class DashboardModule { }

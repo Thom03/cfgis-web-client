@@ -14,7 +14,7 @@ const routes: Routes = [{
       path: 'dashboard',
       component: DashboardComponent,
     },
-   
+
     {
       path: 'layout',
       loadChildren: () => import('./layout/layout.module')

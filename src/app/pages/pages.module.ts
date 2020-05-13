@@ -15,7 +15,7 @@ import { AuthComponent } from './auth/auth.component';
     ThemeModule,
     NbMenuModule,
     DashboardModule,
-   
+
     MiscellaneousModule,
   ],
   declarations: [
