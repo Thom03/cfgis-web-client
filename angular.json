@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "cfgis-web-client"
+    }
+  },
+  "defaultProject": "cfgis-web-client",
+  "cli": {
+    "analytics": "c7052a2e-c260-4a11-8e84-7784735f832d"
+  }
 }
