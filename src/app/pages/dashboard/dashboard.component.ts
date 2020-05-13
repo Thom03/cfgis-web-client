@@ -20,25 +20,25 @@ export class DashboardComponent implements OnDestroy {
 
   solarValue: number;
   lightCard: CardSettings = {
-    title: 'Light',
-    iconClass: 'nb-lightbulb',
+    title: 'Users',
+    iconClass: 'nb-person',
     type: 'primary',
   };
   rollerShadesCard: CardSettings = {
-    title: 'Roller Shades',
-    iconClass: 'nb-roller-shades',
+    title: 'Map Layers',
+    iconClass: 'nb-location',
     type: 'success',
   };
   wirelessAudioCard: CardSettings = {
-    title: 'Wireless Audio',
-    iconClass: 'nb-audio',
+    title: 'Projects',
+    iconClass: 'nb-list',
     type: 'info',
   };
-  coffeeMakerCard: CardSettings = {
-    title: 'Coffee Maker',
-    iconClass: 'nb-coffee-maker',
-    type: 'warning',
-  };
+  // coffeeMakerCard: CardSettings = {
+  //   title: 'Coffee Maker',
+  //   iconClass: 'nb-coffee-maker',
+  //   type: 'warning',
+  // };
 
   statusCards: string;
 
@@ -46,7 +46,7 @@ export class DashboardComponent implements OnDestroy {
     this.lightCard,
     this.rollerShadesCard,
     this.wirelessAudioCard,
-    this.coffeeMakerCard,
+    // this.coffeeMakerCard,
   ];
 
   statusCardsByThemes: {
@@ -70,10 +70,10 @@ export class DashboardComponent implements OnDestroy {
         ...this.wirelessAudioCard,
         type: 'danger',
       },
-      {
-        ...this.coffeeMakerCard,
-        type: 'info',
-      },
+      // {
+      //   ...this.coffeeMakerCard,
+      //   type: 'info',
+      // },
     ],
     dark: this.commonStatusCardsSet,
   };
