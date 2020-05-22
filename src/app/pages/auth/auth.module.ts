@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { NgxAuthRoutingModule } from './auth-routing.module';
-import { NbAuthModule, NbPasswordAuthStrategyOptions, NbPasswordAuthStrategy } from '@nebular/auth';
+import { NbAuthModule, NbPasswordAuthStrategyOptions, NbPasswordAuthStrategy, NbAuthJWTToken } from '@nebular/auth';
 import {
   NbAlertModule,
   NbButtonModule,
@@ -35,12 +35,18 @@ import { NgxLoginComponent } from './login/login.component';
           strategies: [
             NbPasswordAuthStrategy.setup({
               name: 'email',
+              token:{
+                class: NbAuthJWTToken,
 
-              baseEndpoint: 'http://138.197.76.176:9800/api/',
+                key: 'token',
+              },
+              baseEndpoint: 'http://localhost:9800/api/',
               login: {
                 // ...
-                endpoint: 'auth/login',
+                endpoint: 'auth/login/',
                 method: 'post',
+                redirect:{
+                  success: '/dashboard/',                }
               },
               register: {
                 // ...
@@ -48,8 +54,8 @@ import { NgxLoginComponent } from './login/login.component';
               },
             }),
           ],
-        
-    })
+
+    }),
   ],
 })
 export class AuthModule { }

@@ -1,6 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { takeWhile } from 'rxjs/operators';
 import { forkJoin } from 'rxjs';
+import { NbAuthJWTToken, NbAuthService } from '@nebular/auth';
 
 import { Contacts, RecentUsers, UserData } from '../../../@core/data/users';
 
@@ -10,6 +11,8 @@ import { Contacts, RecentUsers, UserData } from '../../../@core/data/users';
   templateUrl: './contacts.component.html',
 })
 export class ContactsComponent implements OnDestroy {
+
+
 
   private alive = true;
 

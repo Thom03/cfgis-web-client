@@ -52,7 +52,7 @@ export const routes: Routes = [
   //   ],
   // },
   { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
-  // { path: '**', redirectTo: 'pages' },
+  { path: '**', redirectTo: 'pages' },
 ];
 
 const config: ExtraOptions = {
