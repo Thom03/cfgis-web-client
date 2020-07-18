@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { NgxAuthRoutingModule } from './auth-routing.module';
-import { NbAuthModule, NbPasswordAuthStrategyOptions, NbPasswordAuthStrategy, NbAuthJWTToken } from '@nebular/auth';
+import { NbAuthModule, NbPasswordAuthStrategy, NbAuthJWTToken } from '@nebular/auth';
 import {
   NbAlertModule,
   NbButtonModule,
@@ -35,7 +35,7 @@ import { NgxLoginComponent } from './login/login.component';
           strategies: [
             NbPasswordAuthStrategy.setup({
               name: 'email',
-              token:{
+              token: {
                 class: NbAuthJWTToken,
 
                 key: 'token',
@@ -45,12 +45,12 @@ import { NgxLoginComponent } from './login/login.component';
                 // ...
                 endpoint: 'auth/login/',
                 method: 'post',
-                redirect:{
-                  success: '/dashboard/',                }
+                redirect: {
+                  success: '/dashboard/'                },
               },
               register: {
                 // ...
-                endpoint: '/api/auth/register',
+                endpoint: '/api/auth/logout',
               },
             }),
           ],

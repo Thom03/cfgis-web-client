@@ -1,5 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSourceBuilder } from '@nebular/theme';
+import { ApiService } from './api.service';
+import { NbAuthJWTToken, NbAuthService } from '@nebular/auth';
+
 
 interface TreeNode<T> {
   data: T;
@@ -9,9 +12,8 @@ interface TreeNode<T> {
 
 interface FSEntry {
   name: string;
-  size: string;
-  kind: string;
-  items?: number;
+  description: string;
+
 }
 
 @Component({
@@ -19,19 +21,49 @@ interface FSEntry {
   templateUrl: './tree-grid.component.html',
   styleUrls: ['./tree-grid.component.scss'],
 })
+
+
 export class TreeGridComponent {
   customColumn = 'name';
-  defaultColumns = [ 'size', 'kind', 'items' ];
+  defaultColumns = [ 'description'  ];
   allColumns = [ this.customColumn, ...this.defaultColumns ];
+  user = {};
 
   dataSource: NbTreeGridDataSource<FSEntry>;
 
   sortColumn: string;
   sortDirection: NbSortDirection = NbSortDirection.NONE;
 
-  constructor(private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>) {
-    this.dataSource = this.dataSourceBuilder.create(this.data);
+  // constructor(private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>) {
+  //   this.dataSource = this.dataSourceBuilder.create(this.data);
+  // }
+
+  constructor(private apiservice: ApiService, private authService: NbAuthService) {}
+  ngOnInit() {
+
+
+
+    // this.apiservice.getProjects().subscribe((data)=>{
+    //   console.log(data)
+    //   // this.source.load(data)
+    // })
+
+    // this.authService.onTokenChange()
+    //   .subscribe((token: NbAuthJWTToken) => {
+
+    //     if (token.isValid()) {
+    //       this.user = token.getPayload(); // here we receive a payload from the token and assigns it to our `user` variable
+    //       console.log(data)
+
+    //     }
+
+    //   });
+
+
+
   }
+
+
 
   updateSort(sortRequest: NbSortRequest): void {
     this.sortColumn = sortRequest.column;
@@ -47,26 +79,9 @@ export class TreeGridComponent {
 
   private data: TreeNode<FSEntry>[] = [
     {
-      data: { name: 'Projects', size: '1.8 MB', items: 5, kind: 'dir' },
+      data: { name: 'name', description: 'description',  },
       children: [
-        { data: { name: 'project-1.doc', kind: 'doc', size: '240 KB' } },
-        { data: { name: 'project-2.doc', kind: 'doc', size: '290 KB' } },
-        { data: { name: 'project-3', kind: 'txt', size: '466 KB' } },
-        { data: { name: 'project-4.docx', kind: 'docx', size: '900 KB' } },
-      ],
-    },
-    {
-      data: { name: 'Reports', kind: 'dir', size: '400 KB', items: 2 },
-      children: [
-        { data: { name: 'Report 1', kind: 'doc', size: '100 KB' } },
-        { data: { name: 'Report 2', kind: 'doc', size: '300 KB' } },
-      ],
-    },
-    {
-      data: { name: 'Other', kind: 'dir', size: '109 MB', items: 2 },
-      children: [
-        { data: { name: 'backup.bkp', kind: 'bkp', size: '107 MB' } },
-        { data: { name: 'secret-note.txt', kind: 'txt', size: '2 MB' } },
+
       ],
     },
   ];

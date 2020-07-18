@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NbLoginComponent } from '@nebular/auth';
 
 @Component({
@@ -7,6 +7,6 @@ import { NbLoginComponent } from '@nebular/auth';
 })
 export class NgxLoginComponent extends NbLoginComponent {
 
-  
-  
+
+
 }

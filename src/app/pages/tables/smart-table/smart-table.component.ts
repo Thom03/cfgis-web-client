@@ -1,3 +1,4 @@
+import { ApiService } from './api.service';
 import { Component } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 
@@ -26,39 +27,44 @@ export class SmartTableComponent {
       confirmDelete: true,
     },
     columns: {
-      id: {
-        title: 'ID',
-        type: 'number',
+      project:{
+        title: 'Project',
+        type: 'string',
+        valuePrepareFunction: (project) => {
+          return project.name
+        }
       },
-      firstName: {
-        title: 'First Name',
+      name: {
+        title: 'Name',
         type: 'string',
       },
-      lastName: {
-        title: 'Last Name',
+      description: {
+        title: 'Description',
         type: 'string',
       },
-      username: {
-        title: 'Username',
+      url: {
+        title: 'URL',
         type: 'string',
-      },
-      email: {
-        title: 'E-mail',
-        type: 'string',
-      },
-      age: {
-        title: 'Age',
-        type: 'number',
       },
     },
   };
 
   source: LocalDataSource = new LocalDataSource();
 
-  constructor(private service: SmartTableData) {
-    const data = this.service.getData();
-    this.source.load(data);
+  constructor(private apiservice: ApiService) {}
+  ngOnInit() {
+
+
+    this.apiservice.getMapLayers().subscribe((data)=>{
+      console.log(data)
+      // this.source.load(data)
+    })
+
   }
+
+    // const data = this.apiservice.getData();
+    // // this.source.load(data);
+
 
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {

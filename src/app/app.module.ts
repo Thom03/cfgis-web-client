@@ -1,3 +1,4 @@
+import { NbAuthModule, NbPasswordAuthStrategy, NbAuthJWTToken } from '@nebular/auth';
 /**
  * @license
  * Copyright Akveo. All Rights Reserved.
@@ -39,6 +40,21 @@ import {
     }),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
+
+    NbAuthModule.forRoot({
+          strategies: [
+            NbPasswordAuthStrategy.setup({
+              name: 'email',
+
+              token: {
+                class: NbAuthJWTToken,
+
+                key: 'token',
+              }
+            }),
+          ],
+          forms: {},
+    }),
   ],
   bootstrap: [AppComponent],
 })
